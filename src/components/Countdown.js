@@ -4,7 +4,11 @@ class CountDown extends React.Component {
     state = {
         count: 10
     }
-    
+    componentWillUnmount() {
+        if (this.timer ) {
+            clearInterval(this.timer );
+        }
+    }
     componentDidMount() {
         this.timer = setInterval(() => {
             this.setState({
@@ -17,7 +21,7 @@ class CountDown extends React.Component {
         if (prevState !== this.state.count && this.state.count === 0) {
             if (this.timer ) {
                 clearInterval(this.timer );
-                this.props.onTimesup();
+                //this.props.onTimesup();
             }
         }
     }

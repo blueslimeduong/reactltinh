@@ -25,13 +25,13 @@ const App = () => {
     {id: 'todo4', title: 'music', type: 'mduong'}
   ]);
 
-  useEffect(() => {
-    console.log('run use effect')
-  }, [address]);
+  // useEffect(() => {
+  //   console.log('run use effect')
+  // }, [address]);
 
-  useEffect(() => {
-    console.log('run use effect todos')
-  }, [todos]);
+  // useEffect(() => {
+  //   console.log('run use effect todos')
+  // }, [todos]);
 
   const handleClickEvent = (event) => {
     if (!address) {

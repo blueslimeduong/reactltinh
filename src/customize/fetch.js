@@ -8,12 +8,15 @@ const useFetch = (url) => {
     const [isError, setIsError] = useState(false);
 
     useEffect(() => {
-        try {
-            async function fetchData () {
+        const ourRequest = axios.CancelToken.source();
         
-                let res = await axios.get(url);
-                console.log('Check res', res);
-                let data = res && res.data ? res.data : [];
+        async function fetchData () {
+            try {
+                let res = await axios.get(url, {
+                    cancelToken: ourRequest.token,
+                });
+                // console.log('Check res', res);
+                let data = (res && res.data) ? res.data : [];
                 
                 if (data && data.length > 0) {
                     data.map(item => {
@@ -26,12 +29,24 @@ const useFetch = (url) => {
                 setIsLoading(false);
                 setIsError(false);
             }
-            
-            fetchData();
+            catch (err) {
+                if (axios.isCancel(err)) {
+                    console.log(err.message);
+                } 
+                else {
+                    setIsError(true);
+                    setIsLoading(false);
+                }
+            }
         }
-        catch (e) {
-            setIsError(true);
-            setIsLoading(false);
+    
+        setTimeout(() => {
+            fetchData();       
+        }, 3000);
+        
+        
+        return () => {
+            ourRequest.cancel('Operation canceled by user.');
         }
     }, [url]);
 
