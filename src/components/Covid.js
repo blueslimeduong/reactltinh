@@ -6,7 +6,7 @@ const Convid = () => {
     const preDate = moment().startOf('day').subtract(31, 'days').toISOString(true);
     const {data: dataCovid, isLoading, isError} 
         // = useFetch('https://api.covid19api.com/country/vietnam?from=2021-10-01T00:00:00Z&to=2021-10-20T00:00:00Z')
-        = useFetch(`https://api.covid19api.com/country/vietnam?from=${preDate}&to=${today}`)
+        = useFetch(`https://api.covid19api.com/country/vietnam?from=${preDate}&to=${today}`, true)
 
     return (
         <>

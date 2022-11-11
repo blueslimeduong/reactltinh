@@ -3,6 +3,8 @@ import './App.css';
 import Nav from './components/Nav';
 import Todo from './components/Todo';
 import Covid from './components/Covid';
+import Blog from './components/Blog';
+import DetailBlog from './components/DetailBlog';
 import { useState, useEffect } from 'react';
 import {CountDown, NewCountDown} from './components/Countdown';
 
@@ -65,7 +67,7 @@ const App = () => {
         <header className="App-header">
           <Nav/>
           <img src={logo} className="App-logo" alt="logo" />
-          <h1>Hello world with {name}!</h1>
+          {/* <h1>Hello world with {name}!</h1> */}
           <Switch>
             <Route path="/" exact>
               <Covid/>
@@ -85,7 +87,12 @@ const App = () => {
               <input type="text" value={address} onChange={(event) => handleOnChangeInput(event)}/>
               <button type='button' onClick={(event) => handleClickEvent(event)}>Click me</button>
             </Route>
-          
+            <Route path='/blog' exact>
+              <Blog/>
+            </Route>
+            <Route path='/blog/:id'>
+              <DetailBlog/>
+            </Route>
         </Switch>
 
           {/* 
