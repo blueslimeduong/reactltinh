@@ -11,7 +11,7 @@
     border-radius: 3p;
     padding: 10px;
     margin: 0 10px;
-    max-width: 29.8vw;
+    width: 30vw;
     text-align: left;
     
 }
@@ -21,4 +21,35 @@
 }
 .blogs-container .content {
     padding: 10px 0;
+}
+.btn-add-new {
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+.add-new-container {
+    max-width: 600px;
+    
+    border: 1px solid gray;
+    padding: 5px;
+    margin: 0 auto;
+    text-align: left;
+
+}
+
+.add-new-container .text-add-new {
+    margin: 10px 0;
+    text-align: center;
+}
+
+.add-new-container .inputs-data {
+    padding: 5px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    min-width: 400px;
+}
+
+.add-new-container button {
+    margin-left: 10px;
 }
